@@ -25,7 +25,8 @@
     "sinon": "~1.8.2"
   },
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "create-integration-db": "node integrationTests/db/create.js"
   },
   "repository": {
     "type": "git",

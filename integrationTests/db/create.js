@@ -9,6 +9,19 @@ require('../../lib/connection').connect('./integrationTests/db/db-config.json')
                     t.text('age');
                 });
             }
+        }).catch(function() {
+            console.warn('heinzel already exists');
+        });
+
+        knex.schema.hasTable('occupation').then(function(exists) {
+            if (!exists) {
+                return knex.schema.createTable('occupation', function(t) {
+                    t.increments('id').primary();
+                    t.string('occupation', 100);
+                });
+            }
+        }).catch(function() {
+            console.warn('heinzel already exists');
         });
     })
     .catch(function(error) {

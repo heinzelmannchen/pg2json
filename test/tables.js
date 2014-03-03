@@ -4,7 +4,7 @@
 
 require('mocha-as-promised')();
 
-describe('Tables', function() {
+describe.skip('Tables', function() {
     describe('#getTables', function() {
         beforeEach(function() {
             /*mockedKnex = {

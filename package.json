@@ -26,6 +26,7 @@
   },
   "scripts": {
     "test": "mocha --reporter spec",
+    "integration": "mocha integrationTests --reporter spec",
     "create-integration-db": "node integrationTests/db/create.js"
   },
   "repository": {

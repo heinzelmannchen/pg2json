@@ -1,7 +1,7 @@
 {
-    "host": "10.2.83.80",
-    "user": "admin",
-    "password": "ok18da16",
-    "database": "kpc",
-    "charset": "utf8"
+    "charset": "utf8",
+    "database": "test",
+    "host": "127.0.0.1",
+    "password": "",
+    "user": "stoeffel"
 }

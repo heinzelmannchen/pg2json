@@ -20,7 +20,9 @@
     "underscore": "~1.6.0",
     "chai-fuzzy": "~1.4.0",
     "mocha-jshint": "0.0.7",
-    "mock-fs": "~2.2.0"
+    "mock-fs": "~2.2.0",
+    "sinon-chai": "~2.5.0",
+    "sinon": "~1.8.2"
   },
   "scripts": {
     "test": "mocha --reporter spec"

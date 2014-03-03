@@ -7,7 +7,10 @@
     "test": "test"
   },
   "dependencies": {
-    "q": "~1.0.0"
+    "q": "~1.0.0",
+    "heinzelmannchen-fs": "git://github.com/heinzelmannchen/heinzelmannchen-fs",
+    "knex": "~0.5.8",
+    "pg": "~2.11.1"
   },
   "devDependencies": {
     "mocha": "~1.17.1",
@@ -16,7 +19,8 @@
     "chai-as-promised": "~4.1.0",
     "underscore": "~1.6.0",
     "chai-fuzzy": "~1.4.0",
-    "mocha-jshint": "0.0.7"
+    "mocha-jshint": "0.0.7",
+    "mock-fs": "~2.2.0"
   },
   "scripts": {
     "test": "mocha --reporter spec"

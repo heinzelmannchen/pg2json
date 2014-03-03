@@ -9,8 +9,8 @@
   "dependencies": {
     "q": "~1.0.0",
     "heinzelmannchen-fs": "git://github.com/heinzelmannchen/heinzelmannchen-fs",
-    "knex": "~0.5.8",
-    "pg": "~2.11.1"
+    "pg": "~2.11.1",
+    "knex": "~0.5.8"
   },
   "devDependencies": {
     "mocha": "~1.17.1",

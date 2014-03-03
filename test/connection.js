@@ -1,26 +1,12 @@
 var conn = require('../lib/connection'),
-    mockFs = require('mock-fs');
+    Knex = require('knex');
 require('mocha-as-promised')();
 
 describe('Connection', function() {
     describe('#connect', function() {
-        beforeEach(function() {
-            mockFs({
-                'db-config.json': '{}'
-            });
-        });
-
-        afterEach(function() {
-            mockFs.restore();
-        });
-
-        it('should return a connection object', function() {
-            return conn.connect().should.be.a('object')
-                .and.has.property('select');
-        });
 
         it('should read the given json', function() {
-            return conn.connect('db-config.json').should.be.a('object');
+            return conn.connect('./test/mock/db-config.json').should.eventually.be.a('function');
         });
 
         it('should fail if the config does not exist', function() {
@@ -29,6 +15,9 @@ describe('Connection', function() {
 
         it('should create a connection from a config object', function() {
             return conn.connect({}).should.be.a('object');
+        });
+
+        it.skip('should fail if the connection could not be established', function() {
         });
     });
 });

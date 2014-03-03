@@ -1,4 +1,5 @@
 var columns = require('../lib/columns'),
+    Q = require('q'),
     sinon = require('sinon');
 
 require('mocha-as-promised')();
@@ -8,7 +9,16 @@ describe('Columns', function() {
 
         it('should return a array of columns for a given table', function() {
             columns.hasTable = sinon.stub().returns(true);
-            return columns.get('heinzels').should.eventually.be.like(['name', 'age', 'hat']);
+            columns.getColumns = function() {
+                var q = Q.defer();
+                q.resolve([{
+                    column_name: 'id'
+                }]);
+                return q.promise;
+            };
+            return columns.get('heinzels').should.eventually.be.like([{
+                column_name: 'id'
+            }]);
         });
 
 

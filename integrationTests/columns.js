@@ -10,7 +10,9 @@ describe('Columns', function() {
         it('should return a array of columns for a given table', function() {
             return conn.connect('./integrationTests/db/db-config.json')
                 .then(function(knex) {
-                    return columns.get('heinzels').should.eventually.be.like(['id', 'name', 'age', 'hat_color']);
+                    return columns.get('heinzel').then(function(cols) {
+                        return cols;
+                    }).should.eventually.to.have.length(4);
                 });
         });
 

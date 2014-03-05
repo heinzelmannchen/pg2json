@@ -14,7 +14,7 @@ describe('Tables', function() {
         });
 
         it('should return all table names', function() {
-            return tables.getTables().should.eventually.become('bla');
+            return tables.getTables().should.eventually.be.eql([{table_name: 'heinzel', table_schema: 'public'}]);
         });
     });
 });

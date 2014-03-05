@@ -10,7 +10,14 @@
     "q": "~1.0.0",
     "heinzelmannchen-fs": "git://github.com/heinzelmannchen/heinzelmannchen-fs",
     "pg": "~2.11.1",
-    "knex": "~0.5.8"
+    "knex": "~0.5.8",
+    "commander": "~2.1.0",
+    "term-list": "~0.2.1",
+    "winston": "~0.7.2",
+    "underscore": "~1.6.0",
+    "cli-table": "~0.3.0",
+    "promptly": "~0.2.0",
+    "inquirer": "~0.4.1"
   },
   "devDependencies": {
     "mocha": "~1.17.1",
@@ -28,6 +35,9 @@
     "test": "mocha --reporter spec",
     "integration": "mocha integrationTests --reporter spec",
     "create-integration-db": "node integrationTests/db/create.js"
+  },
+  "bin": {
+    "pg2json": "bin/cli.js"
   },
   "repository": {
     "type": "git",

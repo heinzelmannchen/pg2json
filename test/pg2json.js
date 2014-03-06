@@ -17,6 +17,11 @@ describe('pg2json', function() {
     describe('#getColumns', function() {
 
         it.skip('should return the columns of a given table', function() {
+            pg2json.getColumns('heinzel')
+                .should.eventually.become([{
+                    name: 'id',
+                    type: 'integer'
+                }]);
         });
 
         it.skip('should fail if the table doesn\'t exist.', function() {

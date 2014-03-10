@@ -11,7 +11,6 @@ describe('Columns', function() {
             return conn.connect('./integrationTests/db/db-config.json')
                 .then(function(knex) {
                     return columns.get('heinzel').then(function(cols) {
-                        console.log(cols);
                         return cols;
                     }).should.eventually.to.have.length(5);
                 });

@@ -11,7 +11,7 @@ describe('Relations', function() {
             return conn.connect('./integrationTests/db/db-config.json')
                 .then(function(knex) {
                     return relations.get('heinzel').should.eventually.have.length(2);
-            });
+                });
         });
 
     });

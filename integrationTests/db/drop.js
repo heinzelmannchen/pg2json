@@ -1,13 +1,13 @@
 ﻿require('../../lib/connection').connect('./integrationTests/db/db-config.json')
     .then(function(knex) {
-        drop('heinzel');
-        drop('gender');
-        drop('occupation');
-    return;
-});
+        drop(knex, 'heinzel');
+        drop(knex, 'gender');
+        drop(knex, 'occupation');
+        return;
+    });
 
 
-function drop(tableName) {
+function drop(knex, tableName) {
     knex.schema.hasTable(tableName).then(function(exists) {
         if (exists) {
             return knex.schema.dropTable(tableName);

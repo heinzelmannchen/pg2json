@@ -23,6 +23,6 @@
                 }
             })
             .catch(function(error) {
-                console.warn(tableName + ' couldn\'t be dropped: ' + error);
+                console.warn(error);
             });
     });

@@ -12,7 +12,7 @@ describe('Columns', function() {
                 .then(function(knex) {
                     return columns.get('heinzel').then(function(cols) {
                         return cols;
-                    }).should.eventually.to.have.length(5);
+                    }).should.eventually.to.have.length(6);
                 });
         });
 

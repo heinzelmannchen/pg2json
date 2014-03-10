@@ -30,7 +30,8 @@
     "mocha-jshint": "0.0.7",
     "mock-fs": "~2.2.0",
     "sinon-chai": "~2.5.0",
-    "sinon": "~1.8.2"
+    "sinon": "~1.8.2",
+    "proxyquire": "~0.5.3"
   },
   "scripts": {
     "test": "mocha --reporter spec",

@@ -34,6 +34,7 @@
   "scripts": {
     "test": "mocha --reporter spec",
     "integration": "mocha integrationTests --reporter spec",
+    "drop-integration-db": "node integrationTests/db/drop.js",
     "create-integration-db": "node integrationTests/db/create.js"
   },
   "bin": {

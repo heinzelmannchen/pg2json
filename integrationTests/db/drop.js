@@ -1,18 +1,28 @@
 ﻿require('../../lib/connection').connect('./integrationTests/db/db-config.json')
     .then(function(knex) {
-        drop(knex, 'heinzel');
-        drop(knex, 'gender');
-        drop(knex, 'occupation');
-        return;
+        return knex.schema.hasTable('heinzel')
+            .then(function(exists) {
+                if (exists) {
+                    return knex.schema.dropTable('heinzel');
+                }
+            })
+            .then(function() {
+                return knex.schema.hasTable('occupation');
+            })
+            .then(function(exists) {
+                if (exists) {
+                    return knex.schema.dropTable('occupation');
+                }
+            })
+            .then(function() {
+                return knex.schema.hasTable('gender');
+            })
+            .then(function(exists) {
+                if (exists) {
+                    return knex.schema.dropTable('gender');
+                }
+            })
+            .catch(function(error) {
+                console.warn(tableName + ' couldn\'t be dropped: ' + error);
+            });
     });
-
-
-function drop(knex, tableName) {
-    knex.schema.hasTable(tableName).then(function(exists) {
-        if (exists) {
-            return knex.schema.dropTable(tableName);
-        }
-    }).catch(function(error) {
-        console.warn(tableName + ' couldn\'t be dropped: ' + error);
-    });
-}

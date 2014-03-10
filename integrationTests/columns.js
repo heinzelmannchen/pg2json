@@ -13,7 +13,7 @@ describe('Columns', function() {
                     return columns.get('heinzel').then(function(cols) {
                         console.log(cols);
                         return cols;
-                    }).should.eventually.to.have.length(4);
+                    }).should.eventually.to.have.length(5);
                 });
         });
 

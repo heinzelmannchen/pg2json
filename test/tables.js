@@ -1,6 +1,5 @@
-﻿var tables = require('../lib/tables'),
-    columns = require('../lib/columns'),
-    Q = require('q'),
+﻿var Q = require('q'),
+    proxyquire =  require('proxyquire'),
     sinon = require('sinon'),
     mockedKnex;
 
@@ -9,6 +8,30 @@ require('mocha-as-promised')();
 describe('Tables', function() {
     describe('#get', function() {
         it('should return tables with columns', function() {
+
+            var tables = proxyquire('../lib/tables', {
+                './columns': {
+                    get: function() {
+                        var q = Q.defer();
+                        q.resolve([{
+                            column_name: 'name'
+                        }, {
+                            column_name: 'id'
+                        }]);
+                        return q.promise;
+                    }
+                },
+                './relations': {
+                    get: function() {
+                        var q = Q.defer();
+                        q.resolve([{
+                            relation_stuff: 'heinzel'
+                        }]);
+                        return q.promise;
+                    }
+                }
+            });
+
             tables.getMetadata = function() {
                 var q = Q.defer();
                 q.resolve([{
@@ -20,15 +43,7 @@ describe('Tables', function() {
                 }]);
                 return q.promise;
             };
-            columns.get = function() {
-                var q = Q.defer();
-                q.resolve([{
-                    column_name: 'name'
-                }, {
-                    column_name: 'id'
-                }]);
-                return q.promise;
-            };
+
             return tables.get().should.eventually.be.eql(
                 [{
                     table_name: 'heinzel',
@@ -37,6 +52,9 @@ describe('Tables', function() {
                         column_name: 'name'
                     }, {
                         column_name: 'id'
+                    }],
+                    relations: [{
+                        relation_stuff: 'heinzel'
                     }]
                 }, {
                     table_name: 'occupation',
@@ -45,6 +63,9 @@ describe('Tables', function() {
                         column_name: 'name'
                     }, {
                         column_name: 'id'
+                    }],
+                    relations: [{
+                        relation_stuff: 'heinzel'
                     }]
                 }]);
         });

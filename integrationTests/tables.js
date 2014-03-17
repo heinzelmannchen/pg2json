@@ -5,14 +5,20 @@ var tables = require('../lib/tables'),
 require('mocha-as-promised')();
 
 describe('Tables', function() {
-    describe('#getTables', function() {
+    describe('#get', function() {
 
-        it('should return a array of tables for a given database', function() {
+        it('should return an array of tables for a given database', function() {
             return conn.connect('./integrationTests/db/db-config.json')
                 .then(function(knex) {
-                    return tables.getTables().should.eventually.have.length(4);
+                    return tables.get().should.eventually.have.length(3);
                 });
         });
 
+        it('should return a table for a given database', function() {
+            return conn.connect('./integrationTests/db/db-config.json')
+                .then(function(knex) {
+                    return tables.get('heinzel').should.eventually.have.length(1);
+                });
+        });
     });
 });

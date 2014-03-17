@@ -10,7 +10,7 @@ describe('Relations', function() {
         it('should load the corresponding table if it\'s a relation', function() {
             var relations = proxyquire('../lib/relations', {
                 './tables': {
-                    getTables: function() {
+                    get: function() {
                         var q = Q.defer();
                         q.resolve({
                             'tablestuff': '1'

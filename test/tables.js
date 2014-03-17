@@ -7,9 +7,9 @@
 require('mocha-as-promised')();
 
 describe('Tables', function() {
-    describe('#getTables', function() {
-        it('should return table with columns', function() {
-            tables.getNamesAndSchema = function() {
+    describe('#get', function() {
+        it('should return tables with columns', function() {
+            tables.getMetadata = function() {
                 var q = Q.defer();
                 q.resolve([{
                     table_name: 'heinzel',
@@ -29,7 +29,7 @@ describe('Tables', function() {
                 }]);
                 return q.promise;
             };
-            return tables.getTables().should.eventually.be.eql(
+            return tables.get().should.eventually.be.eql(
                 [{
                     table_name: 'heinzel',
                     table_schema: 'public',

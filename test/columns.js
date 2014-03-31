@@ -12,12 +12,14 @@ describe('Columns', function() {
             columns.getColumns = function() {
                 var q = Q.defer();
                 q.resolve([{
-                    column_name: 'id'
+                    column_name: 'id',
+                    data_type: 'integer'
                 }]);
                 return q.promise;
             };
             return columns.get('heinzels').should.eventually.be.like([{
-                column_name: 'id'
+                column_name: 'id',
+                data_type: 'int'
             }]);
         });
 

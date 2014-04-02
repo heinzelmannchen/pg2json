@@ -41,8 +41,8 @@ pg2json.connect({
     charset: 'utf8',
     database: 'test',
     host: '127.0.0.1',
-    password: '',
-    user: 'stoeffel'
+    user: 'user',
+    password: 'password'
 });
 
 //2. Get tables

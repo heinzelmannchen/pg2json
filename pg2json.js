@@ -26,6 +26,6 @@ me.getRelations = function(tableName) {
     return relations.get(tableName);
 };
 
-me.write = function(path, content) {
-    return fsUtil.createFile(path, content);
+me.write = function(path, content, options) {
+    return fsUtil.createFile(path, content, options);
 };

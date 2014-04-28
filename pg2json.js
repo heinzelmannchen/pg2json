@@ -34,7 +34,7 @@ me.getColumns = function(tableName) {
 };
 
 me.setDataTypeMapper = function (mapper) {
-    dataTypesMapping = mapper;
+    dataTypesMapping.map = mapper.map;
 };
 
 me.getRelations = function(tableName) {

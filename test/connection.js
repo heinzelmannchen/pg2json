@@ -2,8 +2,6 @@ var conn = require('../lib/connection'),
     sinon = require('sinon'),
     mockedKnex;
 
-require('mocha-as-promised')();
-
 describe('Connection', function() {
     describe('#connect', function() {
         beforeEach(function() {

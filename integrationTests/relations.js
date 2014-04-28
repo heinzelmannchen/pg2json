@@ -1,6 +1,9 @@
-﻿var relations = require('../lib/relations'),
-    conn = require('../lib/connection'),
-    sinon = require('sinon');
+﻿var conn = require('../lib/connection'),
+    relations = require('../lib/relations')({
+        Q: require('q'),
+        _: require('underscore'),
+        Knex: require('knex')
+    });
 
 require('mocha-as-promised')();
 

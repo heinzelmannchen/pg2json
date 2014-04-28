@@ -1,6 +1,21 @@
-var columns = require('../lib/columns'),
-    conn = require('../lib/connection'),
-    sinon = require('sinon');
+var conn = require('../lib/connection'),
+    sinon = require('sinon'),
+    Q = require('q'),
+    dataTypeMappings = {
+        integer: 'int'
+    },
+    columns = require('../lib/columns')({
+        Q: Q,
+        _: require('underscore'),
+        Knex: require('knex'),
+        dataTypes: {
+            map: function (from) {
+                var q = Q.defer();
+                q.resolve(dataTypeMappings[from]);
+                return q.promise;
+            }
+        }
+    });
 
 require('mocha-as-promised')();
 

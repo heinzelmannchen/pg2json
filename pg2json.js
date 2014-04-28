@@ -1,14 +1,20 @@
 var connection = require('./lib/connection'),
-    columns = require('./lib/columns'),
-    tables = require('./lib/tables'),
-    relations = require('./lib/relations'),
-    fsUtil = require('heinzelmannchen-fs'),
-    Q = require('q'),
+    _ = require('underscore'),
     injections = {
         Q: require('q'),
-        _: require('_'),
+        _: _,
         Knex: require('knex')
     },
+    dataTypesMapping = {},
+    columns = require('./lib/columns')(_.extend(injections, {
+        dataTypes: dataTypesMapping
+    })),
+    relations = require('./lib/relations')(injections),
+    tables = require('./lib/tables')(_.extend(injections, {
+        columns: columns,
+        relations: relations
+    })),
+    fsUtil = require('heinzelmannchen-fs'),
     me = module.exports;
 
 me.connect = function(config) {
@@ -28,7 +34,7 @@ me.getColumns = function(tableName) {
 };
 
 me.setDataTypeMapper = function (mapper) {
-
+    dataTypesMapping = mapper;
 };
 
 me.getRelations = function(tableName) {

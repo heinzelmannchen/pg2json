@@ -18,11 +18,10 @@
     "cli-table": "~0.3.0",
     "promptly": "~0.2.0",
     "inquirer": "~0.4.1",
-    "mockery": "~1.4.0",
-    "heinzelmannchen-datatypes": "git://github.com/heinzelmannchen/heinzelmannchen-datatypes"
+    "mockery": "~1.4.0"
   },
   "devDependencies": {
-    "mocha": "~1.17.1",
+    "mocha": "~1.18",
     "mocha-as-promised": "~2.0.0",
     "chai": "~1.9.0",
     "chai-as-promised": "~4.1.0",
@@ -31,8 +30,7 @@
     "mocha-jshint": "0.0.7",
     "mock-fs": "~2.2.0",
     "sinon-chai": "~2.5.0",
-    "sinon": "~1.8.2",
-    "proxyquire": "~0.5.3"
+    "sinon": "~1.8.2"
   },
   "scripts": {
     "test": "mocha --reporter spec",

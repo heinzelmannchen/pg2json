@@ -5,9 +5,9 @@ var connection = require('./lib/connection'),
         _: _,
         Knex: require('knex')
     },
-    dataTypesMapping = {},
+    dataTypeMapping = {},
     columns = require('./lib/columns')(_.extend(injections, {
-        dataTypes: dataTypesMapping
+        dataTypes: dataTypeMapping
     })),
     relations = require('./lib/relations')(injections),
     tables = require('./lib/tables')(_.extend(injections, {
@@ -33,8 +33,8 @@ me.getColumns = function(tableName) {
     return columns(injections).get(tableName);
 };
 
-me.setDataTypeMapper = function (mapper) {
-    dataTypesMapping.map = mapper.map;
+me.setDataTypeMapping = function (mapper) {
+    dataTypeMapping.map = mapper;
 };
 
 me.getRelations = function(tableName) {

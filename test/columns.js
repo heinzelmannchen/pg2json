@@ -1,11 +1,6 @@
 var columns = require('../lib/columns'),
     Q = require('q'),
-    sinon = require('sinon'),
-    injections = {
-        Q: Q,
-        _: require('underscore'),
-        Knex : require('knex')
-    };
+    sinon = require('sinon');
 
 require('mocha-as-promised')();
 
@@ -22,7 +17,7 @@ describe('Columns', function() {
                 }]);
                 return q.promise;
             };
-            return columns(injections).get('heinzels').should.eventually.be.like([{
+            return columns.get('heinzels').should.eventually.be.like([{
                 column_name: 'id',
                 data_type: 'int'
             }]);
@@ -31,7 +26,7 @@ describe('Columns', function() {
 
         it('should throw if no table given', function() {
             columns.hasTable = sinon.stub().returns(false);
-            return columns(injections).get().should.be.rejected;
+            return columns.get().should.be.rejected;
         });
     });
 });

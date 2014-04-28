@@ -4,11 +4,6 @@ var connection = require('./lib/connection'),
     relations = require('./lib/relations'),
     fsUtil = require('heinzelmannchen-fs'),
     Q = require('q'),
-    injections = {
-        Q: require('q'),
-        _: require('_'),
-        Knex: require('knex')
-    },
     me = module.exports;
 
 me.connect = function(config) {
@@ -24,11 +19,7 @@ me.getTableNames = function(){
 };
 
 me.getColumns = function(tableName) {
-    return columns(injections).get(tableName);
-};
-
-me.setDataTypeMapper = function (mapper) {
-
+    return columns.get(tableName);
 };
 
 me.getRelations = function(tableName) {

@@ -46,11 +46,17 @@ pg2json.connect({
 });
 
 //2. Get tables
-console.log(pg2json.getTables());
+pg2json.getTables()
+    .then(onTablesRead)
+    .fail(onError);
 
 //3. Get columns
-console.log(pg2json.getColumns('tableName'));
+pg2json.getColumns('tableName')
+    .then(onColumnsRead)
+    .fail(onError);
 
 //4. Get relations
-console.log(pg2json.getRelations('tableName'));
+pg2json.getRelations('tableName')
+    .then(onRelationsRead)
+    .fail(onError);
 ```

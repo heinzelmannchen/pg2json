@@ -50,4 +50,7 @@ console.log(pg2json.getTables());
 
 //3. Get columns
 console.log(pg2json.getColumns('tableName'));
+
+//4. Get relations
+console.log(pg2json.getRelations('tableName'));
 ```

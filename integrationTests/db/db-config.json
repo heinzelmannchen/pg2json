@@ -3,5 +3,6 @@
     "database": "heinzel",
     "host": "127.0.0.1",
     "password": "anton",
-    "user": "anton"
+    "user": "anton",
+    "schema": "public"
 }

@@ -1,11 +1,11 @@
 var connection = require('./lib/connection'),
     _ = require('underscore'),
+    dataTypeMapping = {},
     injections = {
         Q: require('q'),
         _: _,
         Knex: require('knex')
     },
-    dataTypeMapping = {},
     columns = require('./lib/columns')(_.extend(injections, {
         dataTypes: dataTypeMapping
     })),

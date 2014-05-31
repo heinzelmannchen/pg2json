@@ -26,18 +26,18 @@ var conn = require('../lib/connection'),
 
 require('mocha-as-promised')();
 
-describe('Tables', function() {
+describe('My-Tables', function() {
     describe('#get', function() {
 
         it('should return an array of tables for a given database', function() {
-            return conn.connect('./integrationTests/db/db-config.json')
+            return conn.connect('./integrationTests/db/my-config.json')
                 .then(function(knex) {
                     return tables.get().should.eventually.have.length(3);
                 });
         });
 
         it('should return a table for a given database', function() {
-            return conn.connect('./integrationTests/db/db-config.json')
+            return conn.connect('./integrationTests/db/my-config.json')
                 .then(function(knex) {
                     return tables.get('heinzel').should.eventually.have.length(1);
                 });

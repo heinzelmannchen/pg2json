@@ -48,7 +48,7 @@
     "url": "https://github.com/heinzelmannchen/pg2json.git"
   },
   "author": "Christoph Hermann & Sebastian Sprenger",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/heinzelmannchen/pg2json/issues"
   },

@@ -18,8 +18,7 @@
     "cli-table": "~0.3.0",
     "promptly": "~0.2.0",
     "inquirer": "~0.4.1",
-    "mockery": "~1.4.0",
-    "mysql": "~2.3.2"
+    "mockery": "~1.4.0"
   },
   "devDependencies": {
     "mocha": "~1.18",
@@ -37,8 +36,7 @@
     "test": "mocha --reporter spec",
     "integration": "mocha integrationTests --reporter spec",
     "drop-integration-db": "node integrationTests/db/drop.js",
-    "create-integration-db": "node integrationTests/db/create.js",
-    "my-create-integration-db": "node integrationTests/db/create.my.js"
+    "create-integration-db": "node integrationTests/db/create.js"
   },
   "bin": {
     "pg2json": "bin/cli.js"

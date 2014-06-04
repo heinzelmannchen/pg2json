@@ -1,6 +1,6 @@
 {
   "name": "pg2json",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Reads the schema of a postgres db",
   "main": "pg2json.js",
   "directories": {
